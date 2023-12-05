@@ -62,6 +62,7 @@ function showQuestion(){
     let questionNo = current + 1;
     questionElement.innerHTML = questionNo + '. ' + currentQuestion.question;
     
+    // this line to style the option of the question...
     currentQuestion.answer.forEach(answers =>{
         const buttons = document.createElement('button');
         buttons.classList.add("btn");
@@ -74,12 +75,14 @@ function showQuestion(){
         buttons.addEventListener('click',selectAnswer);
     })
 }
+//reset function call...
 function reset(){
     nextButton.style.display = "none"
     while(answerButton.firstChild){
         answerButton.removeChild(answerButton.firstChild);
     }
 }
+
 function selectAnswer(e){
     const selectBtn = e.target;
     const isCorrect = selectBtn.dataset.correct === "true";
